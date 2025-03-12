@@ -1,0 +1,205 @@
+File scope 
+global scope 
+
+namespace scope
+class scope
+
+
+Function Overloading:
+---------------------
+	Functions with same name having different signature.
+	
+	Signature :
+		name of the function, number of args, type of args, order in which args are passed.
+		Return type is not part of function signature.
+
+	void fun();
+
+	void fun(int);
+	void fun(double);
+	void fun(float);
+	void fun(char );
+	void fun(const char *);
+	
+	void fun(int ,int);
+	void fun(double ,double);
+	void fun(int ,double);
+	void fun(double ,int);
+	name decoration or mangling 
+--------------------------------
+ "void __cdecl fun(char const *)" (?fun@@YAXPBD@Z) 
+ "void __cdecl fun(char)" (?fun@@YAXD@Z)
+ "void __cdecl fun(double)" (?fun@@YAXN@Z)
+ "void __cdecl fun(double,double)" (?fun@@YAXNN@Z)
+ "void __cdecl fun(double,int)" (?fun@@YAXNH@Z) 
+ "void __cdecl fun(float)" (?fun@@YAXM@Z) 
+ "void __cdecl fun(int)" (?fun@@YAXH@Z) 
+ "void __cdecl fun(int,double)" (?fun@@YAXHN@Z)
+ "void __cdecl fun(int,int)" (?fun@@YAXHH@Z)
+ "void __cdecl fun(void)" (?fun@@YAXXZ) 
+ 
+	
+extern "C" void fun(){
+
+}
+
+====================================================
+default argument 
+----------------
+	void fun(int =1, int =2);//default values
+	int main(){
+		fun();// fun(1,2);
+		fun(10);//fun(10, 2);
+		fun(100,300); //
+	}	
+	void fun(int x, int y){
+		cout<<"X: "<<x<<"\tY: "<<y<<endl;
+	}
+	
+	
+-		reference
+-----------------
+void change(int x) {//call by value
+	x += 100;
+}
+//change(var);
+//change(100);
+
+
+void change(int *x) {//call by address
+	*x += 100;
+}
+//change(&var);
+
+void change(int &x) { //call by reference
+	x += 100;
+}
+//change(var);
+
+
+-		Inline functions
+-------------------------
+		#define SQR(X) X * X
+		
+		int x = 10;
+		//SQR(x++); // x++ * x++;
+		SQR(++x);
+		
+		
+		inline int SQR(int x){
+			return x * x;
+		}
+		
+		SQR(++x);
+		
+		
+		x++ , ++x;
+		x++ && ++x;
+		x++ || ++x;
+		--------------
+		
+		x++ + ++x;
+		x++ - x++;
+		x++ + x++;
+		
+		x++ ;
+		
+			x = x ;
+			x = x + 1;
+		
+		++x;
+			x = x + 1;
+-----------------------------------------------------------------------	arrays (Single Dimension and Double Dimension)
+----------------------------------------------
+-		constexpr.
+-		if-init and switch init
+-		Range based for loops		
+		
+	
+	for (int i =0; i < length; ++i)
+	
+	if (initializer; condition)
+	switch (initializer; expression)
+=================================================================
+Object [state, identity, behavior]
+==================================
+-	    class [data members and member function]
+-	    Mutators and Inspectors and static methods
+
+
+
+
+	data 
+	functions 
+
+OOP --> Object Oriented Programming
+
+1. Abstraction
+2. Encapsulation
+3. Inheritance 
+4. Polymorphism
+
+================================================================
+
+struct Name{
+private:
+	int data; //data member 
+public:	
+	void fun(){ //member function 
+	
+	}
+};
+
+class Name{
+	int data; //private data member 
+public:
+	void fun(){ //public member function
+	
+	}
+};
+
+class Sample{
+public: //behavior of an object 
+	void fun();
+	void funOne()const ;
+	void funTwo();
+private: //state of the object
+	int a;//declaration
+	int b;
+	int c;
+};
+
+int main(){
+	Sample obj;//instance of a class 
+			  //variable of a class 
+}
+int Sample::a=100; //definition 
+
+	-------------------
+   |	stack		   |
+   |				   |
+   |				   |
+    -------------------
+   |				   |
+   |	heap		   |
+   |				   |
+    -------------------
+   |	data		   |
+    -------------------
+   |	BSS			   |
+    -------------------
+   |	Text/Code	   |
+    -------------------
+
+
+
+
+
+
+
+
+
+
+
+
+

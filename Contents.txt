@@ -1,0 +1,88 @@
+Day 1
+•AN OVERVIEW OF C++
+	-Naming convention
+	-function overloading
+	-extern "C" and extern "C++"
+	-default argument 
+	-reference
+	-Inline functions
+	-arrays (Single Dimension and Double Dimension)
+	-constexpr.
+	-if-init and switch init
+	-Range based for loops
+Object [state, identity, behavior]
+	-class [data members and member function]
+	-Mutators and Inspectors and static methods
+	-Constructor [no default constructors generated]
+	-Prefer Initialization over assignment
+	-The order of initialization maps to the order of declaration.
+	-normal, const and mutable members of a class
+	-static and static const.
+	-const members should be initialized in all c’tors.
+	-destructors are called just before the object is released.
+	-explicit c’tor(one param)
+Day 2
+	-Contained object constructors are called from conatainer ctor init list.
+	-default ctor synthesis
+	-copy ctor[parameter,return values]
+	-R-value object,R-value Reference and reference collapse
+	-Explicit ctor
+	-Heap, Malloc, new, delete, new[] and delete[]
+	-Deep Copy v/s Shallow Copy
+	-	shallow copy with ownership transfer
+	-	shallow copy with reference count
+•Friend Function
+	-operator overloading
+	-Binary(+) and unary operator(-,++)
+	-operator<<
+	-casting operators(Explicit keyword)
+	-new and delete operator
+	-Subscript operator[]
+	-Prohibit heap object
+	-deleted and default function
+	-Heap only object
+
+Day 3.
+	-Smart Pointer
+	-Functor
+	-Callbacks[function pointer, member function pointers]
+	-Relationships (Has-A) 
+	-unique_ptr
+	-shared_ptr
+	-std::function
+	-std::bind
+	-return types in Lambda
+	-Lambda and recursion
+	-type inference
+
+Day 4
+	-Template and constants
+	-Inheritance
+	-LSP (Liskov substitution principle)
+	-function hiding
+	-Ctor and Inheritance
+	-public,protected,private (scope)(Access Modifier)
+	-multi-level inheritance
+	-object Slicing
+	-Template and inheritance
+	-Polymorphism
+  
+Day 5
+	-publicizers(changing scope in derived class)[veritical acess control]
+	-pure virtual function
+	-abstract class
+	-Principles
+	-Template Method Pattern  
+	-virtual D’tor 
+Virtual function internal
+	-vptr -> vtable
+	-overriding
+	-Compiler Synthesized Destructor
+	-Multiple Inheritance
+	-Virtual function in multiple inheritance
+	-override
+	-dynamic_cast, reinterpret_cast, static_cast
+	-RTTI(runtime type identification)
+	-Dual dispatch
+	-Hybrid inheritance, virtual base class
+	-override and final

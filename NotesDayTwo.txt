@@ -1,0 +1,129 @@
+Notes Day 2:
+------------
+
+Lets take a problem:
+--------------------
+1. Magic numbers:
+----------------
+	1! --> 1
+	2! --> 2
+	145 --> 1! + 4! + 5! --> 145
+    ???? --> < 50000	
+
+-----------------> 
+ C Style:
+ --------
+	1 to 50000 --> lowerlimit and upperlimit
+=====================================================
+Constructors and Destructor:
+----------------------------
+	These are special member functions of a  class
+	Why is it special?
+		1. These functions has the same name as the class 
+		2. They do not have return type not even void 
+		3. They are called automatically when an object is created.(Depending on the argument used for initialization of your object)
+		
+	Destructor:
+		Class name with ~ symbol prefixed. and this function does not  take any argument.
+		
+		This function is called when an object goes out of scope or delete operator is called.
+		
+		
+		
+		
+	
+	
+	
+	
+	
+ 
+
+
+
+
+
+	-Constructor [no default constructors generated]
+	-Prefer Initialization over assignment
+	-The order of initialization maps to the order of declaration.
+	-normal, const and mutable members of a class
+	-static and static const.
+	-const members should be initialized in all c’tors.
+	-destructors are called just before the object is released.
+	-explicit c’tor(one param)
+Day 2
+	-Contained object constructors are called from conatainer ctor init list.
+	
+	class CA{};
+	
+	
+	class CB{
+		CA a;
+		int b;
+	public:
+			
+		
+	};
+	-default ctor synthesis
+	
+-copy ctor[parameter,return values]
+	
+		CA obj = 100;
+		CA obj2 = obj; 
+---------------------------------------------------------
+URL: 	https://cloud4.rpsconsulting.in/console/#/
+
+userName: 24STA4503_U01		Password: Pass@word1	
+.
+.
+.	
+userName: 24STA4503_U25		Password: Pass@word1	
+	
+----------------------------------------------------------
+	-R-value object,R-value Reference and reference collapse
+	-Explicit ctor
+	-Heap, Malloc, new, delete, new[] and delete[]
+	-Deep Copy v/s Shallow Copy
+	-	shallow copy with ownership transfer
+	-	shallow copy with reference count	
+========================================================
+this pointer
+	2 scenarios where we use this pointer in C++
+	1. if the formal arguments of the member fuctions name is same as data member name the we differentiate the data member by using this->data 
+	2. if your member functions would like to return the call object the we use return *this;
+	
+	class CA{
+	public:
+		void disp(){ //void disp(struct CA const *this)
+		
+		}
+	};
+
+	int main(){
+		CA a; //struct CA a;
+		a.disp(); // a is the calling object
+			//internally this code is changed to disp(&a);
+			
+		CA b;
+		b.disp() ;//disp(&b); 				
+	}	
+	
+No need to return:
+	++a; //void 
+	a ++;
+	
+functions should return:	
+	b = a++; CA 
+	c = ++a; CA & 
+	
+Friend Function:
+----------------
+	
+	-operator overloading
+		-Binary(+) and unary operator(-,++)
+		-operator<<
+		-casting operators(Explicit keyword)
+		-new and delete operator
+		-Subscript operator[]
+		-Prohibit heap object
+		-deleted and default function
+		-Heap only object

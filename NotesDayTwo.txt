@@ -70,14 +70,7 @@ Day 2
 		CA obj = 100;
 		CA obj2 = obj; 
 ---------------------------------------------------------
-URL: 	https://cloud4.rpsconsulting.in/console/#/
 
-userName: 24STA4503_U01		Password: Pass@word1	
-.
-.
-.	
-userName: 24STA4503_U25		Password: Pass@word1	
-	
 ----------------------------------------------------------
 	-R-value object,R-value Reference and reference collapse
 	-Explicit ctor
@@ -87,8 +80,11 @@ userName: 24STA4503_U25		Password: Pass@word1
 	-	shallow copy with reference count	
 ========================================================
 this pointer
+------------
 	2 scenarios where we use this pointer in C++
+
 	1. if the formal arguments of the member fuctions name is same as data member name the we differentiate the data member by using this->data 
+
 	2. if your member functions would like to return the call object the we use return *this;
 	
 	class CA{
@@ -112,12 +108,11 @@ No need to return:
 	a ++;
 	
 functions should return:	
-	b = a++; CA 
-	c = ++a; CA & 
+	b = a++; //CA 
+	c = ++a; //CA & 
 	
 Friend Function:
-----------------
-	
+----------------	
 	-operator overloading
 		-Binary(+) and unary operator(-,++)
 		-operator<<
@@ -127,3 +122,43 @@ Friend Function:
 		-Prohibit heap object
 		-deleted and default function
 		-Heap only object
+===========================================================
+Unary operator:
+--------------
+	++ --> 
+	
+	return operator op(arguments){
+	
+	}
+
+	res = a + 10; //either friend or member function 
+	
+	res = 10 + a; //you must use friend here 
+	
+	res = a.Add(b).Sub(c).mult(d).divi(e);
+	//method chaining 
+	
+////////////////////////////////////////////////
+
+	res = a + b - c * d / e; 
+	//method chaining using operator 
+	
+	, [], (), *
+
+
+
+	Integer a = 10;
+	cout<<a<<endl;
+	
+	Integer a = 10, b =20;
+	Integer c = a + b;
+			//c = operator+(a, b); //friend syntax
+			//c = a.operator+(b); //member function syntax
+	
+	c = a + a + b + b + a; 
+=======================================================
+
+
+
+
+

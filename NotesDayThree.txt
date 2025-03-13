@@ -1,0 +1,177 @@
+Day 3:
+------
+
+	Smart Pointer:
+	--------------
+		a class where its object behaves like a pointer.
+		
+	In tradional C++:
+		we had  auto_ptr
+		
+	In Modern C++ there are classes like shared_ptr, unique_ptr and weak_ptr that are provided by your standard library.
+	
+	->
+	&
+	*
+	
+	Pointer ptr;
+	
+	ptr->
+	&ptr 
+	*ptr 
+
+==========================================================
+Assignment operator overloading...
+	copy assignment  //lvalue 
+	move assignment //modern c++ --> uses rvalue 
+
+=====================================================
+call backs:
+-----------
+	Where you pass function as an argument to a function and call the passed function through the pointer.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+Lambda Expressions:	
+
+
+
+int  x = 900;
+double pi = 3.14159;
+
+//auto fnc = []() { cout << "A simple Lambda expression\n"; };
+
+//auto fnc = [x, pi]() {/*x += 10;*/ cout << "functor x=" << x << " and pi=" << pi << '\n'; };//inspector generated
+
+//auto fnc = [x, pi]() mutable {x += 10; cout << "functor x=" << x << " and pi=" << pi << '\n'; };//mutator generated
+
+//auto fnc = [=]()  { cout << "functor x=" << x << " and pi=" << pi << '\n'; };//Capture all by value and generate inspector
+
+auto fnc = [=]() mutable {x += 10; cout << "functor x=" << x << " and pi=" << pi << '\n'; };//Capture all by value and generate mutator
+
+//auto fnc = [&x, &pi]() {x += 10; cout << "Lambda x=" << x << " and pi=" << pi << '\n'; };//Capture x and pi by reference and inspector generated
+
+
+//auto fnc = [&x, &pi]() mutable {x += 10; cout << "Lambda x=" << x << " and pi=" << pi << '\n'; };//Capture x and pi by reference and mutator generated
+
+
+//auto fnc = [&]() {x += 10; cout << "functor x=" << x << " and pi=" << pi << '\n'; };//Capture all by reference and generate inspector
+
+
+auto fnc = [&]() mutable {x += 10; cout << "functor x=" << x << " and pi=" << pi << '\n'; };//Capture all by reference and generate mutator	
+
+
+int x = 900;
+int y = 800;
+int z = 700;
+
+//auto fnc = [&x, y, z]() {x += 10; /*y += 10;*/ cout << "Lambda x=" << x << " ,y=" << y << " and z=" << z << '\n'; };
+
+//auto fnc = [x, y, &z]() { cout << "Lambda x=" << x << " ,y=" << y << " and z=" << z << '\n'; };
+
+//auto fnc = [=]() { cout << "Lambda x=" << x << " ,y=" << y << " and z=" << z << '\n'; };
+
+//auto fnc = [&]() { cout << "Lambda x=" << x << " ,y=" << y << " and z=" << z << '\n'; };
+
+auto fnc = [=, &z]() {/*x += 10;*/ z += 100; cout << "Lambda x=" << x << " ,y=" << y << " and z=" << z << '\n'; };
+
+//auto fnc = [&, z]() {/*z += 100;*/ x += 100; cout << "Lambda x=" << x << " ,y=" << y << " and z=" << z << '\n'; };
+
+	
+	
+#include <iostream>
+#include <functional>
+
+int main() {
+    std::function<int(int)> factorial = [&](int n) -> int {
+        return (n <= 1) ? 1 : n * factorial(n - 1);
+    };
+
+    std::cout << "Factorial of 5: " << factorial(5) << std::endl;
+}
+
+#include <iostream>
+//C++ 17 onwards...
+int main() {
+    auto factorial = [](auto self, int n) -> int {
+        return (n <= 1) ? 1 : n * self(self, n - 1);
+    };
+
+    std::cout << "Factorial of 5: " << factorial(factorial, 5) << std::endl;
+}
+========================================================
+Templates in C++:
+-----------------
+	function templates
+	class templates 
+	
+	
+Inheritance:
+------------
+	IS A Relationship
+		
+	Derived class is a Base class 
+
+	Base class is more generic in nature as you go down the inheritance path derived classes becomes more specialized.
+		
+	Moving from base to derived class hierarchy refers to specialization and the opposite is referred to as generalization.
+		
+	Order in which constuctors of base class and containted objects are invoked/called.
+
+Polymorphism :
+--------------
+ 
+=========================================================
+	
+In C++, type casting operators are used to convert one data type into another. There are four main type casting operators in C++:
+
+static_cast
+   Used for simple conversions between compatible types.
+   Can be used for implicit and explicit conversions, like int to float, char to int, etc.
+   Example:
+		int num = 10;
+		double d = static_cast<double>(num);  // Converts int to double
+     
+
+dynamic_cast
+   - Used for safe downcasting in **polymorphism** (i.e., casting from a base class pointer to a derived class pointer).
+   Requires at least one virtual function in the base class.
+   Returns nullptr if the cast fails.
+   Example:
+     
+     class Base { virtual void func() {} };
+     class Derived : public Base {};
+     Base* b = new Derived();
+     Derived* d = dynamic_cast<Derived*>(b);  // Safe downcasting
+     
+
+const_cast
+   Used to add or remove const or volatile qualifiers from a variable.
+   Example:
+     void func(const int* ptr) {
+         int* modifiable = const_cast<int*>(ptr);
+         *modifiable = 20;  // Removes const and modifies value
+     }
+     
+
+reinterpret_cast
+   Used for low-level reinterpreting of bit patterns (e.g., converting a pointer of one type to another).
+   Dangerous if used incorrectly.
+   Example:
+     int num = 65;
+     char* c = reinterpret_cast<char*>(&num);  // Interprets int as char pointer
+     
+
+These type casting operators help make conversions explicit and safer in C++ compared to C-style casting ((type) value).	
+	
+	
+	
+	
